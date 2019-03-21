@@ -33,6 +33,10 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+/*自改第一版
+*两个错误：
+*1.p和q不会动
+*2.up没有初始化为0，导致后面+=出现问题，应该是内存泄露
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
@@ -51,5 +55,21 @@ public:
         }
         return head->next;
         }
-};
+};*/
 
+//自改第二版（优化）
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode *head = new ListNode(0),*r=head;
+        int up=0;
+        while(l1!=NULL||l2!=NULL||up){
+            r->next = new ListNode(((l1!=NULL?l1->val:0)+(l2!=NULL?l2->val:0)+up)%10);
+            up = ((l1!=NULL?l1->val:0)+(l2!=NULL?l2->val:0)+up)/10;
+            r=r->next;
+            if(l1)l1=l1->next;
+            if(l2)l2=l2->next;
+        }
+        return head->next;
+        }
+};
