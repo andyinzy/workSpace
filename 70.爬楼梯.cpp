@@ -36,10 +36,35 @@
  * 
  * 
  */
+/*
+递归不行，思想是可行的，但消耗的资源太多
+超出时间限制
 class Solution {
 public:
     int climbStairs(int n) {
-        
+        if(n==1)return 1;
+        if(n==2)return 2;
+        return (climbStairs(n-1)+climbStairs(n-2));
+    }
+};
+要注意的是
+1   1
+2   2
+3   3
+4   5
+5   8
+与下面dp(n-1)对应但i<n相当于n-1，最后back返回最上面一个
+*/
+class Solution {
+public:
+    int climbStairs(int n) {
+        if(n<=1)return 1;
+        vector<int> dp(n);
+        dp[0]=1;dp[1]=2;
+        for(int i=2;i<n;++i){
+            dp[i] = dp[i-1]+dp[i-2];
+        }
+        return dp.back();
     }
 };
 
