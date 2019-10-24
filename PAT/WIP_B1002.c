@@ -30,6 +30,12 @@ int main()
             case 0:printf("lin ");break;
         }
     }
+    int t = 2;
+    while(t--){
+        if (!b[t] || (!b[2]&&!b[1])) continue;
+    }
+
+    if (t>0) printf(" ");
 
     // printf("%d",sum);
     // for (int i = 0; i < 20; i++) {
