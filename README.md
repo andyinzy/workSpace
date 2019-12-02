@@ -1,4 +1,5 @@
-# LeetcodeTraining
-Record my training pariod in Leetcode.
+# Start from 2019/3/21
 
-# start from 2019/3/21 by Ziyuan Yin
+Record my training process in Leetcode.
+
+PAT exams and learning are recorded as well.
